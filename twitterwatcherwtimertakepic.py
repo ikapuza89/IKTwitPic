@@ -37,7 +37,8 @@ class CountDownExec(CountDownTimer):
         self.action()
 		
 def takePicture():
-    os.system('raspistill -o picture.jpg -t 0')
+    new_tweet = CustomStreamListener(status_info)
+    os.system('rapistill -o %s.jpg -t 0' % new_tweet.id)
     
 c = CountDownExec(5, takePicture)
         
