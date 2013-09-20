@@ -2,7 +2,7 @@ import sys
 import tweepy
 import time
 import threading
-import os
+import subprocess
 
 consumer_key="X"
 consumer_secret="X"
@@ -38,7 +38,7 @@ class CountDownExec(CountDownTimer):
 		
 def takePicture():
     new_tweet = CustomStreamListener(status_info)
-    os.system('rapistill -o %s.jpg -t 0' % new_tweet.id)
+    subprocess.Popen(['raspistill', '-o', '{}.jpg'.format(new_tweet.id), '-t', '0'])
     
 c = CountDownExec(5, takePicture)
         
