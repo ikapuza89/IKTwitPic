@@ -42,12 +42,14 @@ def takePicture():
 c = CountDownExec(5, takePicture)
         
 class CustomStreamListener(tweepy.StreamListener):
+    def __init__(self,status):
+       self.id = status.id
     def on_status(self, status):
-        print status.user.id
-        print status.user.screen_name
-        print status.id
-        print status.text
-        c.start()
+       print status.user.id
+       print status.user.screen_name
+       print status.id
+       print status.text
+       c.start()
 
     def on_error(self, status_code):
         print >> sys.stderr, 'Encountered error with status code:', status_code
