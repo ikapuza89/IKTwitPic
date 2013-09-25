@@ -38,7 +38,7 @@ class CountDownExec(CountDownTimer):
 		
 def takePicture():
     new_tweet = CustomStreamListener(status_info)
-    subprocess.Popen(['raspistill', '-o', '{}.jpg'.format(new_tweet.id), '-t', '0'])
+    subprocess.Popen(['raspistill', '-o', '{0}.jpg'.format(new_tweet.id), '-t', '0'])
     
 c = CountDownExec(5, takePicture)
         
